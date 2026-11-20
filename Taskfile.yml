@@ -6,12 +6,18 @@ tasks:
     cmds:
       - bazel build //...
 
+  just-run:
+    desc: Just run main
+    cmds:
+      - ./bazel-bin/aoc {{.CLI_ARGS}}
+
   run:
     desc: Build and run main
     cmds:
-      - bazel run //:main
+      - task: build
+      - task: just-run
 
   format:
     desc: Run clang-format
     cmds:
-      - find . -name "*.h" -o -name "*.cc" | xargs clang-format -i
+      - find . -not -path "./bazel-*" \( -name "*.h" -o -name "*.hpp" -o -name "*.cc" -o -name "*.cpp" \) | xargs clang-format -i

@@ -1,0 +1,21 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+    name = "junelib",
+    srcs = [
+        "FileReader.cc",
+        "StringUtil.cc",
+        "SysUtil.cc",
+        "Timedelta.cc",
+    ],
+    hdrs = [
+        "FileReader.hpp",
+        "MemoryUtil.hpp",
+        "StringUtil.hpp",
+        "SysUtil.hpp",
+        "Timedelta.hpp",
+        "Timing.hpp",
+    ],
+    include_prefix = "junelib",
+    visibility = ["//visibility:public"],
+)
