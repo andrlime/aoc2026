@@ -1,0 +1,17 @@
+version: "3"
+
+tasks:
+  build:
+    desc: Build everything
+    cmds:
+      - bazel build //...
+
+  run:
+    desc: Build and run main
+    cmds:
+      - bazel run //:main
+
+  format:
+    desc: Run clang-format
+    cmds:
+      - find . -name "*.h" -o -name "*.cc" | xargs clang-format -i

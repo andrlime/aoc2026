@@ -1,0 +1,9 @@
+build --cxxopt=-std=c++23
+build --host_cxxopt=-std=c++23
+build --compilation_mode=opt
+build --cxxopt=-O3
+build --cxxopt=-march=native
+build --cxxopt=-DNDEBUG
+build --cxxopt=-funroll-loops
+build --cxxopt=-flto
+build --linkopt=-flto
